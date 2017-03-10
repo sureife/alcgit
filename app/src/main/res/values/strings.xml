@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Alcgit</string>
+    <string name="btn_share">share</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="content_desc_github_profile_img">Github Profile Image</string>
+    <string name="loading">Loading</string>
+    <string name="lagos_java_developers">Lagos Java Developers</string>
 </resources>
