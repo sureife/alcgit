@@ -27,4 +27,9 @@ public class DevDetailPresenter implements DevDetailContract.UserActionListener 
         mDevDetailsView.showUsername(developer.getUsername());
         mDevDetailsView.showProfileUrl(developer.getGithubUrl());
     }
+
+    @Override
+    public void shareGithubProfile(String username, String profileUrl) {
+
+    }
 }

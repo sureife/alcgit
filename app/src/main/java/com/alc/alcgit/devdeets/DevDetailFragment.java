@@ -101,6 +101,11 @@ public class DevDetailFragment extends Fragment implements DevDetailContract.Vie
         usernameTextView.setText(username);
     }
 
+    @Override
+    public void launchShareIntent(String username, String profileUrl) {
+
+    }
+
     @OnClick(R.id.btn_github_profile_url)
     public void openLink(){
         actionListener.openWebPage("lit");

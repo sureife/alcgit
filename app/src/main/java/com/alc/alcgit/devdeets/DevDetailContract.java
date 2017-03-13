@@ -21,11 +21,15 @@ public interface DevDetailContract {
 
         void showUsername(String username);
 
+        void launchShareIntent(String username,String profileUrl);
+
     }
 
     interface UserActionListener{
         void openWebPage(String url);
 
         void openDevDetails(Developer developer);
+
+        void shareGithubProfile(String username,String profileUrl);
     }
 }
