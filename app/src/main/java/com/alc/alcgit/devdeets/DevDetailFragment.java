@@ -110,7 +110,7 @@ public class DevDetailFragment extends Fragment implements DevDetailContract.Vie
         );
         shareIntent.setType("text/plain");
         if(shareIntent.resolveActivity(getActivity().getPackageManager()) != null){
-            startActivity(shareIntent);
+            startActivity(Intent.createChooser(shareIntent,getString(R.string.share_dev_details)));
         }
     }
 
