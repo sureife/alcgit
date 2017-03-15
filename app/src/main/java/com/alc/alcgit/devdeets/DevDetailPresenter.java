@@ -30,6 +30,6 @@ public class DevDetailPresenter implements DevDetailContract.UserActionListener 
 
     @Override
     public void shareGithubProfile(String username, String profileUrl) {
-
+        mDevDetailsView.launchShareIntent(username,profileUrl);
     }
 }

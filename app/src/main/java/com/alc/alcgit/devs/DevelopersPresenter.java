@@ -29,6 +29,7 @@ public class DevelopersPresenter implements DevelopersContract.UserActionListene
         if(developersView.checkNetworkConnection()){
             DevelopersService.getDevelopers(searchQualifiers,loadedListener);
         }else {
+            developersView.hideProgressIndicator();
             developersView.showErrorMessage("No Internet Connectivity");
         }
     }
@@ -42,6 +43,7 @@ public class DevelopersPresenter implements DevelopersContract.UserActionListene
 
         @Override
         public void onDevelopersLoadFailure(String errorMessage) {
+            developersView.hideProgressIndicator();
             developersView.showErrorMessage(errorMessage);
         }
     };

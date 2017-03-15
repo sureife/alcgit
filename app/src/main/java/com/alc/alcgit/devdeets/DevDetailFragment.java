@@ -103,12 +103,29 @@ public class DevDetailFragment extends Fragment implements DevDetailContract.Vie
 
     @Override
     public void launchShareIntent(String username, String profileUrl) {
-
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_TEXT,
+                String.format("Check out this awesome developer @%s, %s", username, profileUrl)
+        );
+        shareIntent.setType("text/plain");
+        if(shareIntent.resolveActivity(getActivity().getPackageManager()) != null){
+            startActivity(shareIntent);
+        }
     }
 
     @OnClick(R.id.btn_github_profile_url)
     public void openLink(){
-        actionListener.openWebPage("lit");
+        String profileUrl = profileUrlButton.getText().toString();
+        actionListener.openWebPage(profileUrl);
+    }
+
+    @OnClick(R.id.btn_share)
+    public void shareGithubProfile(){
+        String username = usernameTextView.getText().toString();
+        String profileUrl = profileUrlButton.getText().toString();
+
+        actionListener.shareGithubProfile(username,profileUrl);
     }
 
     @Override

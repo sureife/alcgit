@@ -27,9 +27,9 @@
 
         <TextView
             android:id="@+id/tv_username"
-            tools:text="sureife"
+            tools:text="jirevwe"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:layout_gravity="center"
             style="@style/RobotoCondensedText"
             android:textColor="#4D4D4D"

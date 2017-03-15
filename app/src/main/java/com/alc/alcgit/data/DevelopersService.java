@@ -2,6 +2,7 @@ package com.alc.alcgit.data;
 
 import com.alc.alcgit.remote.GithubDevSearchAPI;
 import com.alc.alcgit.remote.models.Developer;
+import com.alc.alcgit.remote.models.SearchResults;
 import com.alc.alcgit.utils.Constants;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public  class DevelopersService {
+    public static final String PER_PAGE = "100";
 
     public interface OnDevelopersLoadedListener{
         void onDevelopersLoaded(List<Developer> developers);
@@ -32,22 +34,18 @@ public  class DevelopersService {
 
         GithubDevSearchAPI apiService = retrofit.create(GithubDevSearchAPI.class);
 
-        Call<List<Developer>> call = apiService.getDevelopers(searchQualifiers,Constants.ACCESS_TOKEN);
+        Call<SearchResults> call = apiService.getDevelopers(searchQualifiers,PER_PAGE,Constants.ACCESS_TOKEN);
 
-        call.enqueue(new Callback<List<Developer>>() {
+        call.enqueue(new Callback<SearchResults>() {
             @Override
-            public void onResponse(Call<List<Developer>> call, Response<List<Developer>> response) {
-                developersLoadedListener.onDevelopersLoaded(response.body());
+            public void onResponse(Call<SearchResults> call, Response<SearchResults> response) {
+                developersLoadedListener.onDevelopersLoaded(response.body().getDevelopers());
             }
 
             @Override
-            public void onFailure(Call<List<Developer>> call, Throwable t) {
+            public void onFailure(Call<SearchResults> call, Throwable t) {
                 developersLoadedListener.onDevelopersLoadFailure(t.getMessage());
             }
         });
-
-
-
-
     }
 }

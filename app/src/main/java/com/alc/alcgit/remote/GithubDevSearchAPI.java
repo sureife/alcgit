@@ -3,6 +3,7 @@ package com.alc.alcgit.remote;
 
 
 import com.alc.alcgit.remote.models.Developer;
+import com.alc.alcgit.remote.models.SearchResults;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ import retrofit2.http.Query;
 public interface GithubDevSearchAPI {
 
     @GET("/search/users")
-    Call<List<Developer>> getDevelopers(@Query("q") String userSearchQualifiers, @Query("access_token") String token);
+    Call<SearchResults> getDevelopers(@Query(value = "q",encoded = true) String userSearchQualifiers,@Query("per_page") String pageCount, @Query(value ="access_token",encoded = true) String token);
 
 
 }

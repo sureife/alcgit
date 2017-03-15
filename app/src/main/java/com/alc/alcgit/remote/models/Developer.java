@@ -20,7 +20,7 @@ public class Developer implements Serializable{
     private
     String profilePicUrl;
 
-    @SerializedName("url")
+    @SerializedName("html_url")
     private
     String githubUrl;
 
